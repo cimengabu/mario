@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Mario </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Parallax Background Elements -->
+        <div class="clouds" id="bg-clouds"></div>
+
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- UI -->
+        <div id="hud">
+            <div>KOIN: <span id="coin-score">0</span></div>
+            <div>SKOR: <span id="points">0</span></div>
+        </div>
+
+        <div class="ui-screen active" id="main-menu">
+            <h1>MARIO<br><span></span></h1>
+            <p>Petualangan Rame dan Seru!</p>
+            <div class="controls-hint">
+                [A] / [D] atau Panah untuk Jalan<br>
+                [W] / [SPASI] untuk Melompat<br>
+                Injak musuh untuk mengalahkannya!
+            </div>
+            <button id="start-btn">Main Sekarang</button>
+        </div>
+
+        <div class="ui-screen" id="game-over">
+            <h2>YAAAH MATI!</h2>
+            <div class="final-score-box">
+                <p>Koin Terkumpul: <span id="final-coins">0</span></p>
+                <p>Skor Total: <span id="final-score">0</span></p>
+            </div>
+            <button id="restart-btn">Coba Lagi</button>
+        </div>
+        
+        <div class="ui-screen" id="game-win">
+            <h2 style="color: #f1c40f;">SELAMAT!</h2>
+            <p>Karakter berhasil masuk ke rumah/istana dengan selamat!</p>
+            <button id="win-btn">Main Lagi</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

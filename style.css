@@ -1,0 +1,83 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    background-color: #5c94fc; /* Mario blue sky */
+    color: #fff;
+    overflow: hidden;
+    touch-action: none;
+}
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><ellipse cx="50" cy="50" rx="30" ry="15" fill="white" opacity="0.8"/><ellipse cx="70" cy="40" rx="20" ry="20" fill="white" opacity="0.8"/><ellipse cx="90" cy="50" rx="25" ry="15" fill="white" opacity="0.8"/></svg>') repeat-x;
+    background-size: 300px 150px;
+    background-position: 0 50px;
+    z-index: 1;
+    animation: moveClouds 40s linear infinite;
+    pointer-events: none;
+}
+@keyframes moveClouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+    font-size: 16px;
+    text-shadow: 2px 2px 0 #000;
+    display: flex;
+    gap: 40px;
+    pointer-events: none;
+}
+.ui-screen {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 30;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border: 4px solid #fff;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.ui-screen.active {
+    display: flex;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+h1 { font-size: 24px; color: #e74c3c; line-height: 1.5; margin-bottom: 20px; text-shadow: 3px 3px 0 #000;}
+h1 span { color: #f1c40f; }
+h2 { font-size: 24px; margin-bottom: 20px; text-shadow: 3px 3px 0 #000;}
+p { font-size: 10px; line-height: 1.8; margin-bottom: 20px; }
+.controls-hint { background: rgba(255,255,255,0.1); padding: 15px; font-size: 10px; line-height: 2; margin-bottom: 20px; border: 2px dashed #666; }
+button {
+    background: #e74c3c; color: white; border: 4px solid #c0392b;
+    padding: 15px 30px; font-size: 12px; font-family: inherit;
+    cursor: pointer; box-shadow: 0 4px 0 #000; margin-top: 10px;
+}
+button:hover { background: #ff7675; transform: translateY(2px); box-shadow: 0 2px 0 #000; }
+button:active { transform: translateY(4px); box-shadow: none; }
+.final-score-box { margin-bottom: 20px; font-size: 12px; text-align: left; }
+.final-score-box p { margin-bottom: 10px; }
